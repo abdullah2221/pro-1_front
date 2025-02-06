@@ -1,0 +1,47 @@
+<div class="client-page">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Client Dashboard</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a (click)="navigateToProducts()">Browse Products</a></li>
+        <li><a (click)="manageAccount()">Manage Account</a></li>
+        <li><a href="/support">Contact Support</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="welcome-title">Welcome to Your Dashboard</h1>
+        <p class="user-info">
+          <span class="user-email">{{ email }}</span> | 
+          <span class="user-role">{{ role }}</span>
+        </p>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="intro">
+        <p>
+          Discover products, manage your account, and explore features designed just for you.
+        </p>
+      </section>
+
+      <section class="actions">
+        <button class="action-btn primary" (click)="navigateToProducts()">
+          Browse Products
+        </button>
+        <button class="action-btn secondary" (click)="manageAccount()">
+          Manage Account
+        </button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Need help? <a href="/support" class="support-link">Contact Support</a></p>
+    </footer>
+  </div>
+</div>

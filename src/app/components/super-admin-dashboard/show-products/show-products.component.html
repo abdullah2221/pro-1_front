@@ -1,0 +1,45 @@
+<!-- Product List -->
+<div class="product-list-container">
+  <h3>Product List</h3>
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="loader-container">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Product Table -->
+  <table *ngIf="!loading" class="product-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Created By</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.category_id }}</td>
+        <td>${{ product.price }}</td>
+        <td>{{ product.created_by }}</td>
+        <td>
+          <button class="edit-btn" (click)="editProduct(product)">Edit</button>
+          <button class="delete-btn" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Back Button -->
+  <button 
+  class="back-btn" 
+  (click)="goBack()">
+  Back To {{ isSuperAdmin ? 'Super Admin' : 'Dashboard' }}
+</button>
+</div>

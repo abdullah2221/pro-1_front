@@ -1,6 +1,12 @@
 {
   "name": "pro-1-front",
   "version": "0.0.0",
+  "private": true,
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,9 +14,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
-    "@angular/animations": "^16.2.0",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",

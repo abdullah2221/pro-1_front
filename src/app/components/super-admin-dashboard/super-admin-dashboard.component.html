@@ -1,0 +1,146 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>Admin Panel</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li
+        role="button"
+        tabindex="0"
+        (click)="navigateTo('/superadmin/product-management')"
+      >
+        Add  Products
+      </li>
+        <li
+        role="button"
+        tabindex="0"
+        (click)="navigateToProduts('/superadmin/show-products')"
+      >
+        Show  Products
+      </li>
+      <li
+      role="button"
+      tabindex="0"
+      (click)="navigateToCategory('/superadmin/show-categories')"
+    >
+      Show  Categories
+    </li>
+
+  
+     
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="main-header">
+      <h1>Welcome to the Super Admin Dashboard</h1>
+      <button class="button1" (click)="Logout()">Logout</button>
+    </header>
+
+    <section class="user-management">
+      <h2>Manage Users</h2>
+
+      <!-- Display Total Users -->
+      <div class="total-users">
+        <h3>Total Users: {{ users.length }}</h3>
+      </div>
+
+      <!-- Buttons to open modals -->
+      <button (click)="openModal('simple_admin')">Create Simple Admin</button>
+      <button (click)="openModal('client')">Create Client</button>
+      <button (click)="openCategoryModal()">Create Category</button> <!-- NEW BUTTON -->
+<!-- 
+Model for Creating Category -->
+<!-- Modal for Creating Category -->
+<div
+  class="modal"
+  *ngIf="isCategoryModalOpen"
+  [class.show]="isCategoryModalOpen"
+  (click)="closeCategoryModal($event)"
+>
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <h2>Create Category</h2>
+    <form (ngSubmit)="createCategory()" #categoryForm="ngForm">
+      <label for="category-name">Category Name:</label>
+      <input
+        type="text"
+        id="category-name"
+        name="name"
+        [(ngModel)]="newCategory.name"
+        required
+        placeholder="Enter category name"
+      />
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn-primary">Create Category</button>
+        <button type="button" (click)="closeCategoryModal()" class="btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal for Creating User (Simple Admin / Client) -->
+<div
+  class="modal"
+  *ngIf="isModalOpen"
+  [class.show]="isModalOpen"
+  (click)="closeModal($event)"
+>
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <h2>Create {{ newUser.role === 'simple_admin' ? 'Simple Admin' : 'Client' }}</h2>
+    <form (ngSubmit)="createUser()" #userForm="ngForm">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="newUser.email"
+        required
+        placeholder="Enter email"
+      />
+
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="newUser.password"
+        required
+        placeholder="Enter password"
+      />
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn-primary">Create User</button>
+        <button type="button" (click)="closeModal()" class="btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+      <!-- Recent Users Table -->
+      <h3>Recent Users</h3>
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.email }}</td>
+            <td>{{ getRoleName(user.role_id) }}</td>
+            <td>
+              <button>View</button>
+              <button  *ngIf="user.role_id !== 1"  (click)="deleteUser(user.id)" >Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>

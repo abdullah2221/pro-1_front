@@ -1,0 +1,27 @@
+<div class="category-list-container">
+    <h3>Categories</h3>
+  
+    <!-- Loader (Displayed when loading is true) -->
+    <div *ngIf="loading" class="loader">
+      <div class="spinner"></div> Loading...
+    </div>
+  
+    <!-- Categories Table (Displayed when loading is false) -->
+    <table *ngIf="!loading" class="category-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Parent Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.id }}</td>
+          <td>{{ category.name }}</td>
+          <td>{{ category.parent_id ? category.parent_id : 'No Parent' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
