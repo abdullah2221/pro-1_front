@@ -42,8 +42,8 @@ export class ClientPageComponent implements OnInit {
      * To be implemented with a router or other navigation logic.
      */
     navigateToProducts(): void {
-    this.router.navigate(["client/products"]);  // Remove the leading slash
-    console.log('Navigating to the products page...');
+      console.log('Navigating to the products page...');
+      this.router.navigate(["client/products"]);// Remove the leading slash
   }
 
 
@@ -51,8 +51,12 @@ export class ClientPageComponent implements OnInit {
    * Handles account management actions.
    * To be implemented with a router or modal.
    */
-  manageAccount(): void {
-    console.log('Navigating to account management...');
-    // Add account management logic here
+  navigateToCart(): void {
+    console.log('Navigating to the Cart page...');
+    this.router.navigate(["client/cart"]);
+  }
+  Logout(){
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

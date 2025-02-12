@@ -6,7 +6,8 @@
     <nav class="sidebar-nav">
       <ul>
         <li><a (click)="navigateToProducts()">Browse Products</a></li>
-        <li><a (click)="manageAccount()">Manage Account</a></li>
+        <li><a (click)="navigateToCart()">Browse Cart</a></li>
+        <li><a (click)="Logout()">Logout</a></li>
         <li><a href="/support">Contact Support</a></li>
       </ul>
     </nav>
@@ -34,8 +35,8 @@
         <button class="action-btn primary" (click)="navigateToProducts()">
           Browse Products
         </button>
-        <button class="action-btn secondary" (click)="manageAccount()">
-          Manage Account
+        <button class="action-btn secondary" (click)="navigateToCart()">
+          Browse Cart
         </button>
       </section>
     </main>

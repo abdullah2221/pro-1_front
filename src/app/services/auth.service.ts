@@ -25,7 +25,7 @@ export class AuthService {
           localStorage.setItem('access_token', response.access_token);
           localStorage.setItem('email', email);
           localStorage.setItem('role', response.role);
-          localStorage.setItem('role_id', response.user_id);
+          localStorage.setItem('user_id', response.user_id);
 
           // Redirect based on the user's role
           if (response.role === 'super_admin') {

@@ -4,10 +4,12 @@ import { ClientPageComponent } from './client-page.component';
 import { authGuard } from 'src/app/guards/auth.guard';
 import { ProductsComponent } from './products/products.component';
 import { ClientPageModule } from './client-page.module';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
-  { path: '', component: ClientPageComponent, canActivate: [authGuard] },
-  {path:'products',component:ProductsComponent}
+  { path: '', component: ClientPageComponent },
+  {path:'products',component:ProductsComponent},
+  {path:"cart",component:CartComponent}
 ];
 
 @NgModule({
